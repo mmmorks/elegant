@@ -40,8 +40,10 @@
         {% else %}
         <div class="span8 offset2 article-content">
             {% endif %}
-
+            
+            <main>
             {{ page.content }}
+            </main>
             {% from '_includes/comments.html' import comments_section with context %}
             {{ comments_section(page) }}
         </div>
