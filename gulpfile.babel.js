@@ -1,9 +1,11 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import { src, dest, watch, parallel, series } from "gulp";
 import { exec } from "child_process";
 import { create as browserSyncCreate } from "browser-sync";
-import run from "gulp-run-command";
+import runCommand from "gulp-run-command";
+const run = runCommand.default;
 import postcss from "gulp-postcss";
 import magician from "postcss-font-magician";
 import cssnano from "cssnano";
@@ -11,6 +13,9 @@ import postcssPresetEnv from "postcss-preset-env";
 import rfs from "rfs";
 import concat from "gulp-concat";
 import terser from "gulp-terser";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const browserSync = browserSyncCreate();
 
@@ -135,18 +140,18 @@ const buildAll = series(
   buildContent
 );
 
-exports.validate = run("jinja-ninja templates");
+export const validate = run("jinja-ninja templates");
 
-exports.js = minifyJS;
+export const js = minifyJS;
 
-exports.css = series(
+export const css = series(
   rmProdCSS,
   compileBootstrapLess,
   compileResponsiveLess,
   compileCSS
 );
 
-const build = series(
+export const build = series(
   compileBootstrapLess,
   compileResponsiveLess,
   compileCSS,
@@ -154,8 +159,7 @@ const build = series(
   cleanOutput,
   buildContent
 );
-exports.build = build;
 
 const elegant = series(build, parallel(watchFiles, reload));
-exports.elegant = elegant;
-exports.default = elegant;
+export { elegant };
+export default elegant;
