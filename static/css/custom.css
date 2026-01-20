@@ -1,0 +1,6 @@
+/* Fix text justification for code blocks - monospace fonts should use left alignment */
+.article-content pre,
+.article-content code,
+.article-content .highlight {
+  text-align: left;
+}
