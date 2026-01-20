@@ -5,7 +5,6 @@ import { src, dest, watch, parallel, series } from "gulp";
 import { exec } from "child_process";
 import { create as browserSyncCreate } from "browser-sync";
 import runCommand from "gulp-run-command";
-const run = runCommand.default;
 import postcss from "gulp-postcss";
 import magician from "postcss-font-magician";
 import cssnano from "cssnano";
@@ -16,6 +15,7 @@ import terser from "gulp-terser";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const run = runCommand.default;
 
 const browserSync = browserSyncCreate();
 
