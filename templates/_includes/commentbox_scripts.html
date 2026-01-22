@@ -1,6 +1,6 @@
 {% macro comments_script_commentbox(project, identifier) %}
 <div class="commentbox"></div>
-<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR | default('theme') }}/commentbox/commentBox.min.js"></script>
 <script>
     commentBox("{{ project }}", {
         createBoxId: "{{ identifier }}",
