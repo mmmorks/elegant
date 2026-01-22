@@ -120,9 +120,11 @@
         {% include '_includes/stat_counter.html' %}
         <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/stork.js"></script>
         <script>
-            stork.initialize("{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/stork.wasm")
-            stork.downloadIndex("sitesearch", "{{ SITEURL }}/search-index.st")
-            stork.attach("sitesearch")
+            if (typeof stork !== 'undefined') {
+                stork.register("sitesearch", "{{ SITEURL }}/search-index.st").catch(err => {
+                    console.error("Stork search registration error:", err);
+                });
+            }
         </script>
     </body>
     <!-- Theme: Elegant built for Pelican
