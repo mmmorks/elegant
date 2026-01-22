@@ -36,22 +36,22 @@
 {% set landing_page.page = p %}
 {% endfor %}
 
-<div class="row-fluid">
+<div class="row">
     {% if LANDING_PAGE_TITLE %}
-    {% set css_class = 'span10 offset2' %}
+    {% set css_class = 'col-12 col-md-10 offset-md-2' %}
     {% if PROJECTS and LANDING_PAGE_TITLE %}
-    {% set css_class = 'span12' %}
+    {% set css_class = 'col-12' %}
     {% endif %}
     <header class="page-header {{ css_class }}">
     <h1><a href="{{ SITEURL }}">{{ LANDING_PAGE_TITLE }}</a></h1>
     </header>
     {% endif %}
 
-    <div class="row-fluid">
+    <div class="row">
         {% if LANDING_PAGE_TITLE and landing_page.page %}
-        {% set css_class = 'span8 offset2' %}
+        {% set css_class = 'col-12 col-md-8 offset-md-2' %}
         {% if PROJECTS and LANDING_PAGE_TITLE %}
-        {% set css_class = 'span8' %}
+        {% set css_class = 'col-12 col-md-8' %}
         {% endif %}
         <div class="{{ css_class }}">
             <header>
@@ -64,9 +64,9 @@
         {% endif %}
 
         {% if PROJECTS %}
-        {% set css_class = 'span8 offset2' %}
+        {% set css_class = 'col-12 col-md-8 offset-md-2' %}
         {% if PROJECTS and LANDING_PAGE_TITLE %}
-        {% set css_class = 'span4' %}
+        {% set css_class = 'col-12 col-md-4' %}
         {% endif %}
         <div class="{{ css_class }}">
             <header>
@@ -84,12 +84,12 @@
     </div>
 
     {% if articles %}
-    {% set css_class = 'span8 offset2' %}
+    {% set css_class = 'col-12 col-md-8 offset-md-2' %}
     {% if articles and PROJECTS and LANDING_PAGE_TITLE %}
-    {% set css_class = 'span12' %}
+    {% set css_class = 'col-12' %}
     {% endif %}
     {% from '_includes/_defaults.html' import RECENT_ARTICLES_COUNT, ARCHIVES_URL, CATEGORIES_URL with context %}
-    <div class="row-fluid">
+    <div class="row">
         <div class="{{ css_class }}">
             <header>
             <h1 id="recent-posts">Recent Posts <a id="allposts" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">all posts</a></h1>
