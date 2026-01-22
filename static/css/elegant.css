@@ -253,7 +253,7 @@ ul.list-articles-under-tag-category li time,
 div.recent-posts-posted {
   color: var(--mutedTextColor);
 }
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   div.blog-archives h2 {
     float: none;
   }

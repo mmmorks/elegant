@@ -26,14 +26,6 @@ const content_404 = () =>
 const cleanOutput = () => exec("cd documentation && rm -rf outout/");
 
 const buildContent = () => exec("cd documentation && invoke build");
-const compileBootstrapLess = () =>
-  exec(
-    "node_modules/recess/bin/recess --compile static/bootstrap/bootstrap.less > static/css/bootstrap.css"
-  );
-const compileResponsiveLess = () =>
-  exec(
-    "node_modules/recess/bin/recess --compile static/bootstrap/responsive.less > static/css/bootstrap_responsive.css"
-  );
 
 const reload = (cb) => {
   browserSync.init(
@@ -69,7 +61,6 @@ const watchFiles = () => {
       "documentation/publishconf.py",
       "templates/**/*.html",
       "static/**/*.css",
-      "static/**/*.less",
       "static/**/*.js",
       "!static/**/bootstrap.css",
       "!static/**/bootstrap_responsive.css",
@@ -120,11 +111,14 @@ const compileCSS = () => {
     }),
   ];
   return src([
+    "node_modules/bootstrap/dist/css/bootstrap.css",
     "static/applause-button/applause-button.css",
     "static/photoswipe/photoswipe.css",
     "static/photoswipe/default-skin/default-skin.css",
     "static/css/*.css",
     "!static/css/elegant.prod.9e9d5ce754.css",
+    "!static/css/bootstrap.css",
+    "!static/css/bootstrap_responsive.css",
   ])
     .pipe(postcss(plugins))
     .pipe(concat("elegant.prod.9e9d5ce754.css"))
@@ -133,8 +127,6 @@ const compileCSS = () => {
 
 const buildAll = series(
   rmProdCSS,
-  compileBootstrapLess,
-  compileResponsiveLess,
   compileCSS,
   minifyJS,
   buildContent
@@ -146,14 +138,10 @@ export const js = minifyJS;
 
 export const css = series(
   rmProdCSS,
-  compileBootstrapLess,
-  compileResponsiveLess,
   compileCSS
 );
 
 export const build = series(
-  compileBootstrapLess,
-  compileResponsiveLess,
   compileCSS,
   minifyJS,
   cleanOutput,

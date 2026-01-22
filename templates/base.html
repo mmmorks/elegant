@@ -54,52 +54,52 @@
     </head>
     <body>
         <div id="content">
-            <div class="navbar navbar-static-top">
-                <div class="navbar-inner">
-                    <div class="container-fluid">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <a class="brand" href="{{ SITEURL }}/"><span class=site-name>{{ SITENAME }}</span></a>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav pull-right top-menu">
-                                <li {% if page_name == 'index' %} class="active"{% endif %}>
-                                    <a href=
-                                       {% if SITEURL %}
-                                       {{ SITEURL }}
-                                       {% else %}
-                                       "/"
-                                       {% endif %}
-                                    >Home</a>
-                                </li>
-                                {% if DISPLAY_PAGES_ON_MENU %}
-                                {% for p in pages %}
-                                <li {% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-                                {% endfor %}
-                                {% endif %}
-                                {% from '_includes/_defaults.html' import TAGS_URL, CATEGORIES_URL, ARCHIVES_URL, SEARCH_URL with context %}
-                                <li {% if page_name == 'categories' %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a></li>
-                                <li {% if page_name == 'tags' %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></li>
-                                <li {% if page_name == 'archives' %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a></li>
-                                <li>
-                                    <form class="navbar-search"><input data-stork="sitesearch" class="search-query" placeholder="Search"></form>
-                                </li>
-                            </ul>
-                            <div data-stork="sitesearch-output" style="position:absolute; top: 2rem; margin-top: 7px; right: 0"></div>
-                        </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ SITEURL }}/"><span class="site-name">{{ SITENAME }}</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link{% if page_name == 'index' %} active{% endif %}" href="{% if SITEURL %}{{ SITEURL }}{% else %}/{% endif %}">Home</a>
+                            </li>
+                            {% if DISPLAY_PAGES_ON_MENU %}
+                            {% for p in pages %}
+                            <li class="nav-item">
+                                <a class="nav-link{% if p == page %} active{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                            {% from '_includes/_defaults.html' import TAGS_URL, CATEGORIES_URL, ARCHIVES_URL, SEARCH_URL with context %}
+                            <li class="nav-item">
+                                <a class="nav-link{% if page_name == 'categories' %} active{% endif %}" href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link{% if page_name == 'tags' %} active{% endif %}" href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link{% if page_name == 'archives' %} active{% endif %}" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="d-flex">
+                                    <input data-stork="sitesearch" class="form-control" placeholder="Search">
+                                </form>
+                            </li>
+                        </ul>
+                        <div data-stork="sitesearch-output" style="position:absolute; top: 3.5rem; right: 0"></div>
                     </div>
                 </div>
-            </div>
+            </nav>
             <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span1"></div>
-                    <div class="span10">
+                <div class="row">
+                    <div class="col-12 col-md-1"></div>
+                    <div class="col-12 col-md-10">
                         {% block content %}
                         {% endblock content %}
                     </div>
-                    <div class="span1"></div>
+                    <div class="col-12 col-md-1"></div>
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@
         {% if AMAZON_BESTAZON %}
             {% include '_includes/bestazon.html' %}
         {% endif %}
-        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <script src="{{ SITEURL }}/theme/js/elegant.prod.9e9d5ce754.js"></script>
         <script>
             function validateForm(query)

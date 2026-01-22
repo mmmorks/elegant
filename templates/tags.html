@@ -31,15 +31,15 @@ All tags used in the {{ SITENAME|striptags|e }} blog.
 
 {% block content %}
 {% from '_includes/_defaults.html' import TAGS_URL with context %}
-<div class="row-fluid">
-    <header class="page-header span10 offset2">
+<div class="row">
+    <header class="page-header col-12 col-md-10 offset-md-2">
     <h1><a href="{{ SITEURL }}/{{ TAGS_URL }}">All Tags</a></h1>
     </header>
 </div>
-<div class="row-fluid">
-    <div class="span8 offset2">
-        <form class="form-search">
-            <input type="text" class="input-medium search-query filterinput" placeholder="Find a tag">
+<div class="row">
+    <div class="col-12 col-md-8 offset-md-2">
+        <form>
+            <input type="text" class="form-control filterinput" placeholder="Find a tag">
         </form>
         <ul class="list-of-tags">
             {% for tag, articles in tags|sort %}
@@ -52,8 +52,8 @@ All tags used in the {{ SITENAME|striptags|e }} blog.
     </div>
 </div>
 
-<div class="row-fluid">
-    <div class="span8 offset2">
+<div class="row">
+    <div class="col-12 col-md-8 offset-md-2">
         {% for tag, articles in tags|sort %}
         <h2 id="{{ tag.slug }}-ref" class="tag-title">{{ tag }}</h2>
         <ul class="list-articles-under-tag-category">
@@ -84,40 +84,46 @@ All tags used in the {{ SITENAME|striptags|e }} blog.
 {{ super() }}
 
 <script>
-    (function ($) {
-        // custom css expression for a case-insensitive contains()
-        jQuery.expr[':'].Contains = function(a,i,m){
-            return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-        };
+    // Vanilla JS tag filtering
+    (function() {
+        'use strict';
 
-        function listFilter() {
+        function caseInsensitiveContains(element, searchText) {
+            const text = element.textContent || element.innerText || '';
+            return text.toUpperCase().indexOf(searchText.toUpperCase()) >= 0;
+        }
 
-            $('.filterinput')
-            .change( function () {
-                var filter = $(this).val();
-                if(filter) {
-                    // this finds all links in a list that contain the input,
-                    // and hide the ones not containing the input while showing the ones that do
-                    $('.list-of-tags').find("a:not(:Contains(" + filter + "))").parent().hide();
-                    $('.list-of-tags').find("a:Contains(" + filter + ")").parent().show();
+        function filterTags() {
+            const filterInput = document.querySelector('.filterinput');
+            const tagListItems = document.querySelectorAll('.list-of-tags li');
+
+            filterInput.addEventListener('input', function() {
+                const filter = this.value;
+
+                tagListItems.forEach(function(item) {
+                    const link = item.querySelector('a');
+                    if (filter && link) {
+                        // Show/hide based on whether the link text contains the filter
+                        if (caseInsensitiveContains(link, filter)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     } else {
-                    $('.list-of-tags').find("li").show();
-                }
-                return false;
-            })
-            .keyup( function () {
-                // fire the above change event after every letter
-                $(this).change();
+                        // No filter - show all
+                        item.style.display = '';
+                    }
+                });
             });
         }
 
-        //ondomready
-        $(function () {
-            listFilter($());
-        });
-    }(jQuery));
-
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', filterTags);
+        } else {
+            filterTags();
+        }
+    })();
 </script>
-
 
 {% endblock script %}
