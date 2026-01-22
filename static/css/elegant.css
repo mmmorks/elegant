@@ -192,6 +192,8 @@ ul.multi-parts-list li.active-part {
 .article-content img {
   border: 2px solid #eee;
   padding: 5px;
+  max-width: 100%;
+  height: auto;
 }
 p#post-share-links {
   text-align: right;
@@ -368,6 +370,8 @@ div.line-block div.line-block {
 div.figure,
 .article-content img {
   text-align: center;
+  max-width: 100%;
+  height: auto;
 }
 div.figure img {
   width: 100%;
