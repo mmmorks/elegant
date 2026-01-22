@@ -15,6 +15,17 @@ resolutions and devices.
 Visit [elegant.oncrashreboot.com][demo] to see theme in action, which is also
 home to the documentation.
 
+## Browser Support
+
+Elegant supports modern browsers and follows current web standards:
+
+- Last 2 versions of major browsers (Chrome, Firefox, Safari, Edge)
+- Firefox ESR
+- Browsers with >0.2% market share
+- Mobile browsers on iOS and Android
+
+Internet Explorer is no longer supported. The theme uses modern CSS and JavaScript features for better performance and maintainability.
+
 ## Documentation
 
 [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/)
