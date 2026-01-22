@@ -88,9 +88,9 @@ document.getElementById("comments").onclick = function () {
     var link = document.getElementById('comment-accordion-toggle');
     if (document.getElementById("comments").checked == true) {
         old_innerHTML = link.innerHTML;
-        link.text = 'Click here to hide comments'
+        link.textContent = 'Click here to hide comments'
     } else {
-        link.text = old_innerHTML;
+        link.innerHTML = old_innerHTML;
     }
 };
 </script>

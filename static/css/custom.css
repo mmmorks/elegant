@@ -4,3 +4,16 @@
 .article-content .highlight {
   text-align: left;
 }
+
+/* Fix accordion collapse to prevent content from peeking through */
+.accordion .accordion-body {
+  padding: 0;
+}
+
+.accordion .accordion-inner {
+  padding: 0;
+}
+
+.accordion input:checked ~ .accordion-body .accordion-inner {
+  padding: 15px 0;
+}
