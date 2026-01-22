@@ -62,8 +62,6 @@ const watchFiles = () => {
       "templates/**/*.html",
       "static/**/*.css",
       "static/**/*.js",
-      "!static/**/bootstrap.css",
-      "!static/**/bootstrap_responsive.css",
       "!static/**/elegant.prod.9e9d5ce754.css",
       "!static/js/elegant.prod.9e9d5ce754.js",
     ],
@@ -84,6 +82,7 @@ const rmProdCSS = (cb) => {
 };
 const minifyJS = () => {
   return src([
+    "static/bootstrap/bootstrap.bundle.js",
     "static/applause-button/applause-button.js",
     "static/photoswipe/photoswipe.js",
     "static/photoswipe/photoswipe-ui-default.js",
@@ -111,14 +110,12 @@ const compileCSS = () => {
     }),
   ];
   return src([
-    "node_modules/bootstrap/dist/css/bootstrap.css",
+    "static/bootstrap/bootstrap.css",
     "static/applause-button/applause-button.css",
     "static/photoswipe/photoswipe.css",
     "static/photoswipe/default-skin/default-skin.css",
     "static/css/*.css",
     "!static/css/elegant.prod.9e9d5ce754.css",
-    "!static/css/bootstrap.css",
-    "!static/css/bootstrap_responsive.css",
   ])
     .pipe(postcss(plugins))
     .pipe(concat("elegant.prod.9e9d5ce754.css"))
