@@ -1,11 +1,11 @@
 ---
 # elegant-5zqj
 title: Update browser support targets (drop IE 10)
-status: in-progress
+status: completed
 type: feature
 priority: high
 created_at: 2026-01-22T06:20:00Z
-updated_at: 2026-01-22T06:23:47Z
+updated_at: 2026-01-22T06:27:48Z
 parent: elegant-2ya5
 ---
 
