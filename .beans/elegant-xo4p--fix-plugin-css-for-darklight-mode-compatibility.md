@@ -1,11 +1,11 @@
 ---
 # elegant-xo4p
 title: Fix plugin CSS for dark/light mode compatibility
-status: in-progress
+status: completed
 type: task
 priority: normal
 created_at: 2026-01-25T23:17:05Z
-updated_at: 2026-01-25T23:17:56Z
+updated_at: 2026-01-25T23:25:46Z
 ---
 
 Update CSS for all plugins (stork search, commentbox, etc.) to work properly with both dark and light modes. Ensure proper theming and color schemes are applied based on the active mode.
