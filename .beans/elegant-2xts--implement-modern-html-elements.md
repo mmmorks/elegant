@@ -1,11 +1,11 @@
 ---
 # elegant-2xts
 title: Implement modern HTML elements
-status: todo
+status: in-progress
 type: feature
 priority: normal
 created_at: 2026-01-22T06:20:36Z
-updated_at: 2026-01-22T06:20:36Z
+updated_at: 2026-01-25T22:30:45Z
 parent: elegant-2ya5
 ---
 
@@ -31,11 +31,11 @@ Replace legacy UI patterns with modern HTML elements like <details>, <dialog>, a
 - Better SEO
 
 ## Checklist
-- [ ] Replace category accordion with <details>/<summary>
-- [ ] Replace comment collapse with <details>/<summary>
-- [ ] Implement <dialog> for any modals
-- [ ] Add native form validation attributes
-- [ ] Audit semantic HTML usage
+- [x] Replace category accordion with <details>/<summary>
+- [x] Replace comment collapse with <details>/<summary>
+- [x] Implement <dialog> for any modals (no custom modals found - only third-party libraries)
+- [x] Add native form validation attributes (404 search, mailchimp form)
+- [x] Audit semantic HTML usage (added <main>, <article> elements)
 - [ ] Test keyboard navigation
 - [ ] Test screen reader compatibility
-- [ ] Update CSS for new elements
+- [x] Update CSS for new elements

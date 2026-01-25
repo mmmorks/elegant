@@ -1,10 +1,11 @@
 ---
 # elegant-xg6g
 title: Implement Bootstrap 5 dark mode toggle for Elegant theme
-status: in-progress
+status: completed
 type: feature
+priority: normal
 created_at: 2026-01-25T20:33:58Z
-updated_at: 2026-01-25T20:33:58Z
+updated_at: 2026-01-25T22:28:25Z
 ---
 
 Implement dark mode using Bootstrap 5.3+ native support with manual toggle.
@@ -30,7 +31,20 @@ Implement dark mode using Bootstrap 5.3+ native support with manual toggle.
 - [x] Update colors to use CSS variables
 
 ### Phase 4: Testing & Refinement
-- [ ] Test all pages render correctly in both modes
-- [ ] Verify localStorage persistence works
-- [ ] Test auto mode respects system preferences
-- [ ] Check accessibility and contrast ratios
+- [x] Test all pages render correctly in both modes
+- [x] Verify localStorage persistence works
+- [x] Test auto mode respects system preferences
+- [x] Check accessibility and contrast ratios
+
+## Architecture Decision
+
+**Decision:** Keep dark mode as an integrated theme feature (NOT a separate plugin)
+
+**Rationale:**
+- Dark mode is fundamentally a theme concern requiring theme-specific CSS
+- UI integration requires theme template modifications regardless
+- Bootstrap 5.3+ dependency is theme-specific
+- Simpler to maintain when all dark mode code lives in the theme
+- Follows standard web development practices
+
+**Documentation:** See `documentation/content/Advanced Features/dark-mode.md` for full architectural analysis and user documentation.
