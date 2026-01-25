@@ -5,18 +5,6 @@
   text-align: left;
 }
 
-/* Fix accordion collapse to prevent content from peeking through */
-.accordion .accordion-body {
-  padding: 0;
-}
-
-.accordion .accordion-inner {
-  padding: 0;
-}
-
-.accordion input:checked ~ .accordion-body .accordion-inner {
-  padding: 15px 0;
-}
 
 /* Dark Mode Theme Switcher Styles */
 #bd-theme {
@@ -57,6 +45,9 @@
   --elegant-header-border: maroon;
   --elegant-category-hover-bg: #08c;
   --elegant-category-hover-text: #fff;
+  --elegant-button-bg: #eee;
+  --elegant-button-border: #ddd;
+  --elegant-button-text: #333;
   --elegant-navbar-bg: #f8f9fa;
   --elegant-navbar-text: rgba(0, 0, 0, 0.55);
   --elegant-navbar-hover-text: rgba(0, 0, 0, 0.7);
@@ -79,6 +70,9 @@
   --elegant-header-border: #dc143c;
   --elegant-category-hover-bg: #0d6efd;
   --elegant-category-hover-text: #fff;
+  --elegant-button-bg: #343a40;
+  --elegant-button-border: #495057;
+  --elegant-button-text: #dee2e6;
   --elegant-navbar-bg: #1a1d20;
   --elegant-navbar-text: rgba(255, 255, 255, 0.75);
   --elegant-navbar-hover-text: rgba(255, 255, 255, 0.95);
@@ -132,10 +126,25 @@ table tbody > tr:nth-child(odd) > td {
   color: var(--elegant-code-text);
 }
 
-a.category-title-inside-accordion:hover,
-a:not(.collapsed).accordion-toggle.category-title-inside-accordion {
-  background-color: var(--elegant-category-hover-bg);
-  color: var(--elegant-category-hover-text);
+/* Modern details/summary category styling */
+.category-summary:hover .category-title,
+.category-group[open] .category-summary .category-title {
+  background-color: var(--elegant-category-hover-bg) !important;
+  color: var(--elegant-category-hover-text) !important;
+}
+
+/* Modern details/summary comments styling */
+.comments-summary {
+  background-color: var(--elegant-button-bg);
+  border-color: var(--elegant-button-border);
+  color: var(--elegant-button-text);
+}
+
+.comments-summary:hover,
+.comments-section[open] .comments-summary {
+  background-color: var(--elegant-category-hover-bg) !important;
+  color: var(--elegant-category-hover-text) !important;
+  border-color: var(--elegant-category-hover-bg) !important;
 }
 
 ul.list-projects li,

@@ -199,9 +199,6 @@ p#post-share-links {
   text-align: right;
 }
 /* Categories */
-a.category-title-inside-accordion {
-  text-decoration: none;
-}
 ul.list-articles-under-tag-category {
   list-style: none outside none;
   margin: 0 0 0 5px;
@@ -211,12 +208,6 @@ a.category-link {
 }
 a.category-link:hover {
   text-decoration: none;
-}
-a.category-title-inside-accordion:hover,
-a:not(.collapsed).accordion-toggle.category-title-inside-accordion {
-  background-color: #08c;
-  border-radius: var(--borderRadius);
-  color: #fff;
 }
 div.blog-archives h2 {
   float: left;
@@ -459,28 +450,73 @@ table tbody > tr:nth-child(odd) > td {
   color: var(--mutedTextColor);
 }
 
-.accordion input {
+/* Modern details/summary elements */
+details summary {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+/* Hide default disclosure triangle */
+details summary::-webkit-details-marker {
   display: none;
 }
 
-.accordion .accordion-body {
-  margin: 0 auto;
-  height: 0;
-  overflow: hidden;
+details summary::-moz-list-bullet {
+  list-style-type: none;
 }
 
-.accordion input:checked + label a {
-  background-color: #08c;
-  border-radius: 4px;
+/* Category accordion with native details/summary */
+.category-accordion details {
+  margin-bottom: 0.5rem;
+}
+
+.category-summary .category-title {
+  display: inline-block;
+  padding: 8px 12px;
   border-radius: var(--borderRadius);
+  transition: background-color 0.2s ease;
+}
+
+.category-summary:hover .category-title,
+.category-group[open] .category-summary .category-title {
+  background-color: #08c;
   color: white;
+}
+
+.category-content {
+  margin: 0 auto;
+  color: #333;
+}
+
+/* Comments section with native details/summary */
+.comments-section {
+  margin-top: 1rem;
+}
+
+.comments-summary {
+  font-weight: normal;
+  padding: 8px 12px;
+  border-radius: var(--borderRadius);
+  display: inline-block;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  color: #333;
+  cursor: pointer;
+}
+
+.comments-summary:hover,
+.comments-section[open] .comments-summary {
+  background-color: #08c;
+  color: white;
+  border-color: #08c;
+}
+
+.comments-content {
+  margin-top: 1rem;
 }
 
 label {
   margin-bottom: 0px;
-}
-
-.accordion input:checked ~ .accordion-body {
-  height: auto;
-  color: #333;
 }
