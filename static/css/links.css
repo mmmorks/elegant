@@ -8,6 +8,7 @@ article
   color: black;
   display: inline-block;
   position: relative;
+  text-decoration: none;
   &:after {
     position: absolute;
     top: 100%;
