@@ -97,7 +97,7 @@
         <div class="recent-posts">
             {% for article in articles %}
             {% if loop.index0 < RECENT_ARTICLES_COUNT %}
-            <div itemscope class="recent-posts-article">
+            <article itemscope class="recent-posts-article">
                 <a href="{{ SITEURL }}/{{ article.url }}">
                     {{ article.title }}
                     {% if article.subtitle %}
@@ -114,7 +114,7 @@
                 {% if RECENT_ARTICLE_SUMMARY %}
                     <p>{{ article.summary }}</p>
                 {% endif %}
-            </div>
+            </article>
             {% endif %}
             {% endfor %}
         </div>

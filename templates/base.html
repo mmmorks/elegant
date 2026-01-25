@@ -55,7 +55,7 @@
         {% include '_includes/analytics.html' %}
     </head>
     <body>
-        <div id="content">
+        <main id="content">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ SITEURL }}/"><span class="site-name">{{ SITENAME }}</span></a>
@@ -114,19 +114,13 @@
                     <div class="col-12 col-md-1"></div>
                 </div>
             </div>
-        </div>
+        </main>
         {% include '_includes/footer.html' %}
         {% block script %}
         {% if AMAZON_BESTAZON %}
             {% include '_includes/bestazon.html' %}
         {% endif %}
         <script src="{{ SITEURL }}/theme/js/elegant.prod.9e9d5ce754.js"></script>
-        <script>
-            function validateForm(query)
-            {
-                return (query.length > 0);
-            }
-        </script>
         {% endblock script %}
         {% include '_includes/stat_counter.html' %}
         <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/stork.js"></script>

@@ -20,8 +20,8 @@ Page does not exist at {{ SITENAME|striptags|e }} blog.
         <p>The best thing to do is to use the search form or start again from the <a href="{{ SITEURL }}">home page</a>.</p>
         <div class="input-group">
             {% from '_includes/_defaults.html' import SEARCH_URL with context %}
-            <form action="{{ SITEURL }}/{{ SEARCH_URL }}" onsubmit="return validateForm(this.elements['q'].value)" class="d-flex w-100">
-                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input_404">
+            <form action="{{ SITEURL }}/{{ SEARCH_URL }}" class="d-flex w-100">
+                <input type="search" class="form-control" placeholder="Search" name="q" id="tipue_search_input_404" required>
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
