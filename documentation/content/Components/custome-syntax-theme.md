@@ -8,11 +8,13 @@ authors: Talha Mansoor
 ---
 
 Elegant uses [Solarized theme](http://ethanschoonover.com/solarized) for syntax
-highlighting. To replace it, copy contents of your preferred theme's CSS style
-sheet into `custom.css`.
+highlighting. To replace it:
 
-Alternatively, you can replace contents of `pygments.css` with your theme's
-style sheet.
+1. Edit `static/css/themes/pygments.css` with your preferred theme's CSS
+2. Run `npm run build` to rebuild the theme
+3. The changes will be bundled into `elegant.prod.css`
+
+Alternatively, you can add your custom syntax highlighting CSS to your site's static directory (see [Customize Style]({filename}../Advanced Features/custom-style.md)).
 
 If you feel like experimenting with different themes then [this
 repository](https://github.com/uraimo/pygments-vimstyles) has Pygments CSS of

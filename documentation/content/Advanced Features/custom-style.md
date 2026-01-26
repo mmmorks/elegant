@@ -7,21 +7,36 @@ Slug: customize-style
 Category: Advanced Features
 ---
 
-To customize Elegant's visual style, use
-[`custom.css`](https://github.com/Pelican-Elegant/elegant/blob/master/static/css/custom.css).
-You can override Elegant's visual style like font, color, spacing etc using
-this sheet. This empty style sheet is present at following path in your Elegant
-folder,
+To customize Elegant's visual style, you have several options:
+
+## Option 1: Add Custom CSS to Your Site
+
+Create a `custom.css` file in your Pelican site's static directory (not the theme directory):
 
     :::bash
-    static/css/custom.css
+    your-site/content/static/css/custom.css
 
-Find the code of the element you want to customize in
-[`elegant.css`](https://github.com/Pelican-Elegant/elegant/blob/master/static/css/elegant.css).
-Copy the element's selector and styles, and paste it in `custom.css`. Edit this
-CSS code and customize it to your liking.
+Then reference it in your Pelican configuration:
 
-Your customizations will override whatever rules are defined in `elegant.css`.
+    :::python
+    STATIC_PATHS = ['static']
+    EXTRA_PATH_METADATA = {
+        'static/css/custom.css': {'path': 'static/css/custom.css'},
+    }
+
+Add a link to it in your site's custom template by creating `templates/base.html` that extends the theme's base template.
+
+## Option 2: Modify Theme Source Files
+
+Elegant uses a modular CSS architecture with organized files in `static/css/`:
+
+- `base/variables.css` - CSS custom properties and design tokens
+- `base/typography.css` - Font styles and text formatting
+- `layout/` - Page structure components
+- `components/` - Reusable UI elements
+- `themes/dark-mode.css` - Dark mode color overrides
+
+Find the relevant CSS file for what you want to customize, edit it, and rebuild the theme using `npm run build`.
 
 Let's take a look how you can change the style of hyperlinks in an article.
 Following is the relevant code,

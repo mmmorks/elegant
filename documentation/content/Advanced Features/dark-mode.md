@@ -37,7 +37,7 @@ The dark mode feature is implemented using three files:
 - Applies theme by setting `data-bs-theme` attribute on `<html>` element
 - Vanilla JavaScript, no dependencies
 
-### CSS (`static/css/custom.css`)
+### CSS (`static/css/themes/dark-mode.css`)
 - Defines CSS variables for light and dark themes
 - Uses `[data-bs-theme="dark"]` selectors to override variables
 - Theme-specific color definitions for:
@@ -54,7 +54,7 @@ The dark mode feature is implemented using three files:
 
 ## Customization
 
-To customize dark mode colors, edit `static/css/custom.css`:
+To customize dark mode colors, edit `static/css/themes/dark-mode.css` and rebuild with `npm run build`:
 
     :::css
     /* Light mode (default) */

@@ -20,9 +20,9 @@ server.
 
 !!! Important
 
-    **Elegant comes with a compressed and concatenated CSS stylesheet**, so that only one request is made to fetch the CSS stylesheets. **Following instruction is redundant for most users.**
+    **Elegant comes with a compressed and concatenated CSS stylesheet** (`elegant.prod.css`), so that only one request is made to fetch the CSS stylesheets. **Following instruction is redundant for most users.**
 
-    But if you have decided to [customize the theme using `custom.css`]({filename}../Advanced Features/custom-style.md) then follow these instruction.
+    But if you have decided to [add custom styling]({filename}../Advanced Features/custom-style.md) via a separate CSS file in your site, then follow these instructions.
 
 Pelican provides a plugin that takes the various CSS and JavaScript files and compiles each
 group of them into a single file. Not only does this process reduce the number of calls to

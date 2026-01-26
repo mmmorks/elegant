@@ -1,8 +1,6 @@
 import * as esbuild from 'esbuild';
 import fs from 'fs';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const postcssPlugin = require('esbuild-plugin-postcss2').default;
+import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 import magician from 'postcss-font-magician';
@@ -28,18 +26,19 @@ const commonOptions = {
   logLevel: 'info',
 };
 
-// CSS build configuration
-const cssOptions = {
-  ...commonOptions,
-  entryPoints: ['static/css/main.css'],
-  outfile: isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css',
-  plugins: [
-    postcssPlugin({
-      plugins: postcssPlugins,
-      rootDir: process.cwd(),
-    }),
-  ],
-};
+// Build CSS using postcss directly
+async function buildCSS() {
+  // Read the main CSS file
+  const css = fs.readFileSync('static/css/main.css', 'utf8');
+
+  // Process with PostCSS
+  const result = await postcss(postcssPlugins).process(css, {
+    from: 'static/css/main.css',
+    to: isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css',
+  });
+
+  return result.css;
+}
 
 // JS files to concatenate (in order)
 const jsFiles = [
@@ -76,16 +75,18 @@ async function buildJS() {
 async function build() {
   try {
     // Build CSS
-    await esbuild.build(cssOptions);
+    const cssContent = await buildCSS();
+    const cssFinal = isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css';
+    fs.writeFileSync(cssFinal, cssContent);
 
     // Build JS
     const jsContent = await buildJS();
     const jsFinal = isDev ? 'static/js/elegant.dev.js' : 'static/js/elegant.prod.js';
     fs.writeFileSync(jsFinal, jsContent);
 
-    const cssFinal = isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css';
+    const cssSize = (fs.statSync(cssFinal).size / 1024).toFixed(1);
     console.log('✅ Build completed successfully');
-    console.log(`   CSS: ${cssFinal}`);
+    console.log(`   CSS: ${cssFinal} (${cssSize}kb)`);
     console.log(`   JS: ${jsFinal}`);
   } catch (error) {
     console.error('❌ Build failed:', error);
@@ -93,7 +94,7 @@ async function build() {
   }
 }
 
-export { cssOptions, build };
+export { build };
 
 // CLI build execution
 if (import.meta.url === `file://${process.argv[1]}`) {
