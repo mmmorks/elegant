@@ -1,5 +1,3 @@
-@import url(https://files.stork-search.net/basic.css);
-
 /* Dark mode styles - Applied when Bootstrap dark theme is active */
 /* Using html[data-bs-theme="dark"] for higher specificity than :root */
 html[data-bs-theme="dark"] {
