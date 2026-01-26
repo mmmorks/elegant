@@ -6,46 +6,46 @@
  * reset < base < layout < components < features < themes < utilities < overrides
  */
 
+/* Define layer order (earlier layers have lower specificity) */
+@layer reset, base, layout, components, features, themes, utilities, overrides;
+
 /* Vendor Libraries */
 @import "../bootstrap/bootstrap.css";
 @import "../applause-button/applause-button.css";
 @import "../photoswipe/photoswipe.css";
 @import "../photoswipe/default-skin/default-skin.css";
 
-/* Define layer order (earlier layers have lower specificity) */
-@layer reset, base, layout, components, features, themes, utilities, overrides;
-
 /* Base Styles - Foundational CSS variables and typography */
-@import url("base/variables.css") layer(base);
-@import url("base/typography.css") layer(base);
+@import "base/variables.css" layer(base);
+@import "base/typography.css" layer(base);
 
 /* Layout - Page structure and grid */
-@import url("layout/grid.css") layer(layout);
-@import url("layout/header.css") layer(layout);
-@import url("layout/footer.css") layer(layout);
-@import url("layout/sidebar.css") layer(layout);
+@import "layout/grid.css" layer(layout);
+@import "layout/header.css" layer(layout);
+@import "layout/footer.css" layer(layout);
+@import "layout/sidebar.css" layer(layout);
 
 /* Components - Reusable UI components */
-@import url("components/articles.css") layer(components);
-@import url("components/tags.css") layer(components);
-@import url("components/tables.css") layer(components);
-@import url("components/code.css") layer(components);
-@import url("components/admonitions.css") layer(components);
-@import url("components/blockquotes.css") layer(components);
-@import url("components/comments.css") layer(components);
-@import url("components/forms.css") layer(components);
+@import "components/articles.css" layer(components);
+@import "components/tags.css" layer(components);
+@import "components/tables.css" layer(components);
+@import "components/code.css" layer(components);
+@import "components/admonitions.css" layer(components);
+@import "components/blockquotes.css" layer(components);
+@import "components/comments.css" layer(components);
+@import "components/forms.css" layer(components);
 
 /* Features - Specific feature implementations */
-@import url("features/search.css") layer(features);
-@import url("features/stork.css") layer(features);
-@import url("features/gallery.css") layer(features);
-@import url("features/code-copy.css") layer(features);
-@import url("features/permalink.css") layer(features);
+@import "features/search.css" layer(features);
+@import "features/stork.css" layer(features);
+@import "features/gallery.css" layer(features);
+@import "features/code-copy.css" layer(features);
+@import "features/permalink.css" layer(features);
 
 /* Themes - Syntax highlighting and color schemes */
-@import url("themes/pygments.css") layer(themes);
-@import url("themes/dark-mode.css") layer(themes);
-@import url("themes/stork-dark.css") layer(themes);
+@import "themes/pygments.css" layer(themes);
+@import "themes/dark-mode.css" layer(themes);
+@import "themes/stork-dark.css" layer(themes);
 
 /* Utilities - Helper classes and link styles */
-@import url("utilities/links.css") layer(utilities);
+@import "utilities/links.css" layer(utilities);
