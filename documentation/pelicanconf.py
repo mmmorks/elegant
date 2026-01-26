@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import os
-import json
 
 AUTHOR = "Elegant Team"
 SITENAME = "Elegant"
@@ -192,26 +191,3 @@ AUTHORS = {
 DISQUS_FILTER = True
 UTTERANCES_FILTER = True
 COMMENTBOX_FILTER = True
-
-# Asset manifest for cache-busted filenames
-def asset_url(asset_name):
-    """
-    Resolve asset name to cache-busted filename from manifest.json
-    Falls back to dev filename if manifest doesn't exist.
-    """
-    manifest_path = os.path.join(os.path.dirname(__file__), '..', 'static', 'manifest.json')
-    try:
-        with open(manifest_path, 'r') as f:
-            manifest = json.load(f)
-            return manifest.get(asset_name, asset_name)
-    except (FileNotFoundError, json.JSONDecodeError):
-        # Fallback to dev filename if manifest doesn't exist
-        if asset_name == 'elegant.css':
-            return 'css/elegant.dev.css'
-        elif asset_name == 'elegant.js':
-            return 'js/elegant.dev.js'
-        return asset_name
-
-JINJA_FILTERS = {
-    'asset_url': asset_url,
-}

@@ -81,8 +81,8 @@ Elegant uses [esbuild](https://esbuild.github.io/), a modern JavaScript bundler 
 
 - CSS bundling with PostCSS plugins (autoprefixer, cssnano, font-magician, RFS)
 - JavaScript concatenation and minification
-- Automatic content hashing for cache busting
 - Source maps for development
+- Fast incremental rebuilds
 
 ### Available Commands
 

@@ -58,12 +58,12 @@ yarn build:dev
 yarn dev
 ```
 
-The production build will compile the CSS from [`static/css`](https://github.com/Pelican-Elegant/elegant/tree/master/static/css) into `static/css/elegant.prod.[hash].css` with automatic content hashing for cache busting.
+The production build will compile the CSS from [`static/css`](https://github.com/Pelican-Elegant/elegant/tree/master/static/css) into `static/css/elegant.prod.css`.
 
 ## How does it work?
 
 esbuild with PostCSS takes all the CSS files imported in `static/css/main.css`, applies PostCSS plugins (autoprefixer, cssnano, font-magician, RFS), and outputs the compiled version.
 
-For production builds, it generates a hashed filename like `elegant.prod.a0312d9270.css` and updates `static/manifest.json` with the mapping. Templates use the `asset_url` Jinja filter to load the correct hashed file.
+For production builds, it outputs `elegant.prod.css` and `elegant.prod.js` with fixed filenames that are referenced directly in templates.
 
-If user has enabled [`assets` plugin]({filename}../Supported Plugins/assets-plugin.md), the hashed CSS file is processed through webassets cssmin filter. This is necessary when combining with [`custom.css`]({filename}../Advanced Features/custom-style.md) to create `style.min.css`.
+If user has enabled [`assets` plugin]({filename}../Supported Plugins/assets-plugin.md), the CSS file is processed through webassets cssmin filter. This is necessary when combining with [`custom.css`]({filename}../Advanced Features/custom-style.md) to create `style.min.css`.

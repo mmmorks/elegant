@@ -1,6 +1,5 @@
 import * as esbuild from 'esbuild';
 import fs from 'fs';
-import crypto from 'crypto';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const postcssPlugin = require('esbuild-plugin-postcss2').default;
@@ -33,7 +32,7 @@ const commonOptions = {
 const cssOptions = {
   ...commonOptions,
   entryPoints: ['static/css/main.css'],
-  outfile: 'static/css/elegant.tmp.css',
+  outfile: isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css',
   plugins: [
     postcssPlugin({
       plugins: postcssPlugins,
@@ -56,11 +55,6 @@ const jsFiles = [
   'static/js/lunr-search-result.js',
 ];
 
-// Helper to generate content hash
-function generateHash(content) {
-  return crypto.createHash('md5').update(content).digest('hex').substring(0, 10);
-}
-
 // Build JavaScript by concatenating and minifying
 async function buildJS() {
   // Concatenate all JS files
@@ -78,41 +72,18 @@ async function buildJS() {
   return result.code;
 }
 
-// Build with content hashing
+// Build assets
 async function build() {
   try {
     // Build CSS
     await esbuild.build(cssOptions);
-    const cssContent = fs.readFileSync('static/css/elegant.tmp.css', 'utf8');
 
     // Build JS
     const jsContent = await buildJS();
-
-    // Generate hashes
-    const cssHash = generateHash(cssContent);
-    const jsHash = generateHash(jsContent);
-
-    // Write final files with hashes
-    const cssFinal = isDev
-      ? 'static/css/elegant.dev.css'
-      : `static/css/elegant.prod.${cssHash}.css`;
-    const jsFinal = isDev
-      ? 'static/js/elegant.dev.js'
-      : `static/js/elegant.prod.${jsHash}.js`;
-
-    fs.writeFileSync(cssFinal, cssContent);
+    const jsFinal = isDev ? 'static/js/elegant.dev.js' : 'static/js/elegant.prod.js';
     fs.writeFileSync(jsFinal, jsContent);
 
-    // Clean up temp file
-    fs.unlinkSync('static/css/elegant.tmp.css');
-
-    // Write manifest for template integration
-    const manifest = {
-      'elegant.css': cssFinal.replace('static/', ''),
-      'elegant.js': jsFinal.replace('static/', ''),
-    };
-    fs.writeFileSync('static/manifest.json', JSON.stringify(manifest, null, 2));
-
+    const cssFinal = isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css';
     console.log('✅ Build completed successfully');
     console.log(`   CSS: ${cssFinal}`);
     console.log(`   JS: ${jsFinal}`);
