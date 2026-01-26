@@ -20,6 +20,38 @@
   --stork-results-border-color: var(--stork-border-color);
 }
 
+/* Light mode styles - Explicitly set when light theme is active */
+html[data-bs-theme="light"] {
+  --stork-border-color: hsl(0, 0%, 65%);
+  --stork-background-color: hsla(0, 0%, 97%, 1);
+  --stork-accent-color: hsl(210, 72%, 45%);
+  --stork-input-text-color: black;
+  --stork-results-hover-color: hsl(210, 65%, 75%);
+  --stork-results-title-color: black;
+  --stork-results-excerpt-color: black;
+  --stork-results-highlight-color: rgb(245, 230, 26);
+  --stork-results-border-color: var(--stork-border-color);
+}
+
+html[data-bs-theme="light"] .stork-close-button {
+  background: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 85%) 0%,
+    hsl(0, 0%, 75%) 100%
+  );
+  border: 1px solid hsla(0, 0%, 50%, 0.8);
+  color: hsl(0, 0%, 45%);
+}
+
+html[data-bs-theme="light"] .stork-close-button:hover {
+  background: hsla(0, 0%, 70%);
+  cursor: pointer;
+}
+
+html[data-bs-theme="light"] .stork-close-button:active {
+  background: hsla(0, 0%, 65%);
+}
+
 [data-stork="sitesearch-output"] {
   z-index: 9999 !important;
 }
