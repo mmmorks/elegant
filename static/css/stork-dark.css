@@ -1,7 +1,8 @@
 @import url(https://files.stork-search.net/basic.css);
 
 /* Dark mode styles - Applied when Bootstrap dark theme is active */
-[data-bs-theme="dark"] {
+/* Using html[data-bs-theme="dark"] for higher specificity than :root */
+html[data-bs-theme="dark"] {
   --stork-border-color: hsl(0, 0%, 36%);
   --stork-background-color: hsl(0, 0%, 22%);
   --stork-accent-color: hsl(194, 90%, 53%);
@@ -15,7 +16,7 @@
   --stork-results-border-color: hsl(0, 0%, 30%);
 }
 
-[data-bs-theme="dark"] .stork-close-button {
+html[data-bs-theme="dark"] .stork-close-button {
   background: linear-gradient(
     to bottom,
     hsl(0, 0%, 60%) 0%,
@@ -25,11 +26,11 @@
   color: hsl(0, 0%, 25%);
 }
 
-[data-bs-theme="dark"] .stork-close-button:hover {
+html[data-bs-theme="dark"] .stork-close-button:hover {
   background: hsla(0, 0%, 45%);
   cursor: pointer;
 }
 
-[data-bs-theme="dark"] .stork-close-button:active {
+html[data-bs-theme="dark"] .stork-close-button:active {
   background: hsla(0, 0%, 40%);
 }
