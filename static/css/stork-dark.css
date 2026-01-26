@@ -1,6 +1,5 @@
 /* Dark mode styles - Applied when Bootstrap dark theme is active */
-/* Using html[data-bs-theme="dark"] for higher specificity than :root */
-html[data-bs-theme="dark"] {
+[data-bs-theme="dark"] {
   --stork-border-color: hsl(0, 0%, 36%);
   --stork-background-color: hsl(0, 0%, 22%);
   --stork-accent-color: hsl(194, 90%, 53%);
@@ -14,7 +13,7 @@ html[data-bs-theme="dark"] {
   --stork-results-border-color: hsl(0, 0%, 30%);
 }
 
-html[data-bs-theme="dark"] .stork-close-button {
+[data-bs-theme="dark"] .stork-close-button {
   background: linear-gradient(
     to bottom,
     hsl(0, 0%, 60%) 0%,
@@ -24,11 +23,11 @@ html[data-bs-theme="dark"] .stork-close-button {
   color: hsl(0, 0%, 25%);
 }
 
-html[data-bs-theme="dark"] .stork-close-button:hover {
+[data-bs-theme="dark"] .stork-close-button:hover {
   background: hsla(0, 0%, 45%);
   cursor: pointer;
 }
 
-html[data-bs-theme="dark"] .stork-close-button:active {
+[data-bs-theme="dark"] .stork-close-button:active {
   background: hsla(0, 0%, 40%);
 }
