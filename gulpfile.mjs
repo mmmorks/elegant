@@ -6,6 +6,7 @@ import { exec } from "child_process";
 import { create as browserSyncCreate } from "browser-sync";
 import runCommand from "gulp-run-command";
 import postcss from "gulp-postcss";
+import postcssImport from "postcss-import";
 import magician from "postcss-font-magician";
 import cssnano from "cssnano";
 import postcssPresetEnv from "postcss-preset-env";
@@ -101,6 +102,8 @@ const minifyJS = () => {
 
 const compileCSS = () => {
   const plugins = [
+    // postcss-import must be first to resolve @import statements
+    postcssImport(),
     // postcssPresetEnv comes with autoprefixer
     postcssPresetEnv({ stage: 1 }),
     magician({}),
@@ -114,8 +117,7 @@ const compileCSS = () => {
     "static/applause-button/applause-button.css",
     "static/photoswipe/photoswipe.css",
     "static/photoswipe/default-skin/default-skin.css",
-    "static/css/*.css",
-    "!static/css/elegant.prod.9e9d5ce754.css",
+    "static/css/main.css",
   ])
     .pipe(postcss(plugins))
     .pipe(concat("elegant.prod.9e9d5ce754.css"))

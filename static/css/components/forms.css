@@ -1,0 +1,83 @@
+/**
+ * Components - Forms (MailChimp, etc.)
+ */
+
+/* MailChimp */
+#mc-embed-signup {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 10px 0;
+}
+
+#mc-embed-signup form {
+  display: block;
+  padding: 0;
+  position: relative;
+  text-align: left;
+}
+
+#mc-embed-signup input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #999;
+}
+
+#mc-embed-signup input:focus {
+  border-color: #333;
+}
+
+#mc-embed-signup input.email {
+  display: block;
+  font-size: 0.9em;
+  margin: 0 4% 10px 0;
+  min-width: 130px;
+  padding: 8px 0;
+  text-indent: 5px;
+  width: 100%;
+}
+
+#mc-embed-signup input.button {
+  display: block;
+  margin: 0 0 10px 0;
+  min-width: 130px;
+  width: 100%;
+}
+
+#mc-embed-signup input[type="email"] {
+  height: 100%;
+}
+
+#mc-embed-signup .button {
+  background-color: #eee;
+  border-radius: var(--borderRadius);
+  border: 1px solid #d3d3d3;
+  clear: both;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: normal;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 5px 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: auto;
+}
+
+#mc-embed-signup.button:hover {
+  background-color: #dfdfdf;
+}
+
+#mc-embed-signup .clear {
+  clear: none;
+  display: inline;
+}
+
+/* Form labels */
+label {
+  margin-bottom: 0px;
+}

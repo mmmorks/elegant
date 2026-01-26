@@ -1,0 +1,159 @@
+/**
+ * Components - Tags and categories
+ */
+
+/* Tags */
+ul.list-projects,
+.list-of-tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+}
+
+.list-of-tags li {
+  float: left;
+  line-height: 28px;
+  margin: 0;
+}
+
+.list-of-tags a {
+  background: var(--elegant-tag-bg);
+  border-radius: var(--borderRadius);
+  color: var(--elegant-tag-text);
+  margin: 2px;
+  padding: 3px 6px;
+  text-decoration: none;
+}
+
+.tags-in-article li {
+  float: none;
+  line-height: 28px;
+}
+
+/* Categories */
+ul.list-articles-under-tag-category {
+  list-style: none outside none;
+  margin: 0 0 0 5px;
+}
+
+ul.list-articles-under-tag-category li {
+  padding: 0.1rem 0.2rem;
+}
+
+ul.list-articles-under-tag-category li time {
+  float: right;
+  text-align: left;
+  color: var(--elegant-muted-text);
+}
+
+a.category-link {
+  color: var(--elegant-text-color);
+}
+
+a.category-link:hover {
+  text-decoration: none;
+}
+
+/* Category accordion with native details/summary */
+.category-accordion details {
+  margin-bottom: 0.5rem;
+}
+
+.category-summary .category-title {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: var(--borderRadius);
+  transition: background-color 0.2s ease;
+}
+
+.category-summary:hover .category-title,
+.category-group[open] .category-summary .category-title {
+  background-color: var(--elegant-category-hover-bg) !important;
+  color: var(--elegant-category-hover-text) !important;
+}
+
+.category-content {
+  margin: 0 auto;
+  color: #333;
+}
+
+/* Blog archives */
+div.blog-archives h2 {
+  float: left;
+  clear: both;
+  position: relative;
+  margin: 0;
+}
+
+div.blog-archives div {
+  margin-left: rfs(6rem);
+}
+
+div.blog-archives div.last-entry-of-year {
+  margin-bottom: 1em;
+}
+
+div.blog-archives time {
+  float: right;
+  text-align: left;
+  color: var(--elegant-muted-text);
+}
+
+/* Recent posts */
+div.recent-posts time {
+  float: right;
+  text-align: left;
+  color: var(--elegant-muted-text);
+}
+
+div.recent-posts-posted {
+  color: var(--elegant-muted-text);
+}
+
+/* Project and archive listing */
+ul.list-projects li,
+div.blog-archives div,
+div.recent-posts-article {
+  border-bottom: 1px dotted var(--elegant-muted-text);
+  overflow: auto;
+  padding: 0.3rem 0.2rem;
+}
+
+.proj-desc {
+  color: var(--elegant-muted-text);
+}
+
+/* Index page */
+#allposts {
+  color: var(--elegant-muted-text);
+  float: right;
+  font-size: 75%;
+  font-weight: normal;
+}
+
+a#allposts:hover {
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  div.blog-archives h2 {
+    float: none;
+  }
+
+  div.blog-archives div {
+    margin-left: 0;
+  }
+
+  div.blog-archives article {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  div.blog-archives time,
+  div.recent-posts time,
+  ul.list-articles-under-tag-category li time {
+    float: none;
+    display: block;
+  }
+}

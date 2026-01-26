@@ -1,0 +1,45 @@
+/**
+ * Elegant Theme - Main CSS Entry Point
+ *
+ * This file defines the CSS cascade layers and imports all stylesheets
+ * in the correct order. The layer order determines specificity precedence:
+ * reset < base < layout < components < features < themes < utilities < overrides
+ */
+
+/* Define layer order (earlier layers have lower specificity) */
+@layer reset, base, layout, components, features, themes, utilities, overrides;
+
+/* Base Styles - Foundational CSS variables and typography */
+@import url("base/variables.css") layer(base);
+@import url("base/typography.css") layer(base);
+
+/* Layout - Page structure and grid */
+@import url("layout/grid.css") layer(layout);
+@import url("layout/header.css") layer(layout);
+@import url("layout/footer.css") layer(layout);
+@import url("layout/sidebar.css") layer(layout);
+
+/* Components - Reusable UI components */
+@import url("components/articles.css") layer(components);
+@import url("components/tags.css") layer(components);
+@import url("components/tables.css") layer(components);
+@import url("components/code.css") layer(components);
+@import url("components/admonitions.css") layer(components);
+@import url("components/blockquotes.css") layer(components);
+@import url("components/comments.css") layer(components);
+@import url("components/forms.css") layer(components);
+
+/* Features - Specific feature implementations */
+@import url("features/search.css") layer(features);
+@import url("features/stork.css") layer(features);
+@import url("features/gallery.css") layer(features);
+@import url("features/code-copy.css") layer(features);
+@import url("features/permalink.css") layer(features);
+
+/* Themes - Syntax highlighting and color schemes */
+@import url("themes/pygments.css") layer(themes);
+@import url("themes/dark-mode.css") layer(themes);
+@import url("themes/stork-dark.css") layer(themes);
+
+/* Utilities - Helper classes and link styles */
+@import url("utilities/links.css") layer(utilities);

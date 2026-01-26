@@ -1,0 +1,68 @@
+/**
+ * Components - Comments section
+ */
+
+#comment-message,
+#post-share-links:not(a) {
+  color: var(--elegant-muted-text);
+  text-shadow: 1px 1px 3px rgba(50, 50, 50, 0.15);
+}
+
+#post-share-links a {
+  text-shadow: 0 0;
+}
+
+.comment-count {
+  font-family: "Trebuchet MS", Trebuchet, "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, Sans-Serif;
+  font-size: 0.9em;
+}
+
+#comment_thread {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Comments section with native details/summary */
+.comments-section {
+  margin-top: 1rem;
+}
+
+.comments-summary {
+  font-weight: normal;
+  padding: 8px 12px;
+  border-radius: var(--borderRadius);
+  display: inline-block;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  background-color: var(--elegant-button-bg);
+  border: 1px solid var(--elegant-button-border);
+  color: var(--elegant-button-text);
+  cursor: pointer;
+}
+
+.comments-summary:hover,
+.comments-section[open] .comments-summary {
+  background-color: var(--elegant-category-hover-bg) !important;
+  color: var(--elegant-category-hover-text) !important;
+  border-color: var(--elegant-category-hover-bg) !important;
+}
+
+.comments-content {
+  margin-top: 1rem;
+}
+
+/* Modern details/summary elements */
+details summary {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+/* Hide default disclosure triangle */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::-moz-list-bullet {
+  list-style-type: none;
+}
