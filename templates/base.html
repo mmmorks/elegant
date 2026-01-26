@@ -82,12 +82,7 @@
                                 <a class="nav-link{% if page_name == 'archives' %} active{% endif %}" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>
                             </li>
                             <li class="nav-item">
-                                <form class="d-flex">
-                                    <input data-stork="sitesearch" class="form-control" placeholder="Search">
-                                </form>
-                            </li>
-                            <li class="nav-item">
-                                <button class="btn btn-link nav-link py-2 px-0 px-lg-2 d-flex align-items-center"
+                                <button class="btn btn-link nav-link px-lg-2 d-flex align-items-center"
                                         id="bd-theme"
                                         type="button"
                                         aria-label="Toggle theme (auto)"
@@ -95,6 +90,11 @@
                                     <i class="theme-icon bi bi-circle-half"></i>
                                     <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
                                 </button>
+                            </li>
+                            <li class="nav-item">
+                                <form class="d-flex ms-2">
+                                    <input data-stork="sitesearch" class="form-control" placeholder="Search">
+                                </form>
                             </li>
                         </ul>
                         <div data-stork="sitesearch-output" style="position:absolute; top: 3.5rem; right: 0"></div>

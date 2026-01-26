@@ -7,11 +7,9 @@
   border: none;
   background: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-#bd-theme:hover {
-  transform: scale(1.1);
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 #bd-theme:focus {
@@ -22,6 +20,8 @@
 
 .theme-icon {
   font-size: 1.3em;
+  display: flex;
+  align-items: center;
 }
 
 /* Apply dark mode variables to elements */
