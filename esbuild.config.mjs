@@ -1,5 +1,6 @@
 import * as esbuild from 'esbuild';
 import fs from 'fs';
+import path from 'path';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
@@ -40,15 +41,19 @@ async function buildCSS() {
   return result.css;
 }
 
-// JS files to concatenate (in order)
-const jsFiles = [
-  'static/bootstrap/bootstrap.bundle.js',
-  'static/applause-button/applause-button.js',
-  'static/photoswipe/photoswipe.js',
-  'static/photoswipe/photoswipe-ui-default.js',
-  'static/photoswipe/photoswipe-array-from-dom.js',
-  'static/lunr/lunr.js',
-  'static/clipboard/clipboard.js',
+// Vendor JS files from node_modules (in order)
+const vendorJsFiles = [
+  'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+  'node_modules/applause-button/dist/applause-button.js',
+  'node_modules/photoswipe/dist/photoswipe.js',
+  'node_modules/photoswipe/dist/photoswipe-ui-default.js',
+  'static/photoswipe/photoswipe-array-from-dom.js', // Custom helper
+  'node_modules/lunr/lunr.js',
+  'node_modules/clipboard/dist/clipboard.js',
+];
+
+// Custom JS files (in order)
+const customJsFiles = [
   'static/js/create-instagram-gallery.js',
   'static/js/copy-to-clipboard.js',
   'static/js/lunr-search-result.js',
@@ -57,7 +62,7 @@ const jsFiles = [
 // Build JavaScript by concatenating and minifying
 async function buildJS() {
   // Concatenate all JS files
-  const concatenated = jsFiles
+  const concatenated = [...vendorJsFiles, ...customJsFiles]
     .map(file => fs.readFileSync(file, 'utf8'))
     .join('\n');
 
@@ -71,9 +76,54 @@ async function buildJS() {
   return result.code;
 }
 
+// Copy static assets from node_modules
+function copyVendorAssets() {
+  const copies = [
+    // Bootstrap Icons fonts
+    {
+      from: 'node_modules/bootstrap-icons/font/fonts',
+      to: 'static/css/fonts',
+      pattern: /\.(woff2?|ttf|eot)$/,
+    },
+    // PhotoSwipe default skin images/CSS
+    {
+      from: 'node_modules/photoswipe/dist/default-skin',
+      to: 'static/photoswipe/default-skin',
+      pattern: /\.(png|svg|gif|css)$/,
+    },
+  ];
+
+  copies.forEach(({ from, to, pattern }) => {
+    // Create destination directory
+    if (!fs.existsSync(to)) {
+      fs.mkdirSync(to, { recursive: true });
+    }
+
+    // Copy matching files
+    if (fs.existsSync(from)) {
+      const files = fs.readdirSync(from);
+      files.forEach(file => {
+        if (pattern.test(file)) {
+          const srcPath = path.join(from, file);
+          const destPath = path.join(to, file);
+
+          // Only copy if file or directory
+          const stat = fs.statSync(srcPath);
+          if (stat.isFile()) {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        }
+      });
+    }
+  });
+}
+
 // Build assets
 async function build() {
   try {
+    // Copy vendor assets
+    copyVendorAssets();
+
     // Build CSS
     const cssContent = await buildCSS();
     const cssFinal = isDev ? 'static/css/elegant.dev.css' : 'static/css/elegant.prod.css';

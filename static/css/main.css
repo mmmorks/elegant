@@ -10,10 +10,11 @@
 @layer reset, base, layout, components, features, themes, utilities, overrides;
 
 /* Vendor Libraries - imported into reset layer so theme styles can override */
-@import "../bootstrap/bootstrap.css" layer(reset);
-@import "../applause-button/applause-button.css" layer(reset);
-@import "../photoswipe/photoswipe.css" layer(reset);
-@import "../photoswipe/default-skin/default-skin.css" layer(reset);
+@import "bootstrap/dist/css/bootstrap.css" layer(reset);
+@import "bootstrap-icons/font/bootstrap-icons.css" layer(reset);
+@import "applause-button/dist/applause-button.css" layer(reset);
+@import "photoswipe/dist/photoswipe.css" layer(reset);
+@import "photoswipe/dist/default-skin/default-skin.css" layer(reset);
 
 /* Base Styles - Foundational CSS variables and typography */
 @import "base/variables.css" layer(base);
