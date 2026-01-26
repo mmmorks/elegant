@@ -19,5 +19,5 @@ Specifically:
 - use double (`""`) quotation marks around HTML attributes
 - end files with a newline
 
-You can run `gulp validate` task to validate the templates files using [Jinja Ninja](https://github.com/ramonsaraiva/jinjaninja).
-It is not comprehensive but it does point out obvious mistakes. You can read more about using `gulp` [here]({filename}./live-reload-gulp.md).
+You can run `yarn validate` to validate the templates files using [Jinja Ninja](https://github.com/ramonsaraiva/jinjaninja).
+It is not comprehensive but it does point out obvious mistakes. You can read more about the development workflow [here]({filename}./live-reload-esbuild.md).

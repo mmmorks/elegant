@@ -6,6 +6,12 @@
  * reset < base < layout < components < features < themes < utilities < overrides
  */
 
+/* Vendor Libraries */
+@import "../bootstrap/bootstrap.css";
+@import "../applause-button/applause-button.css";
+@import "../photoswipe/photoswipe.css";
+@import "../photoswipe/default-skin/default-skin.css";
+
 /* Define layer order (earlier layers have lower specificity) */
 @layer reset, base, layout, components, features, themes, utilities, overrides;
 

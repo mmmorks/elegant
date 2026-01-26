@@ -22,4 +22,4 @@ must follow these rules.
 - [Jinja Style]({filename}./jinja-style.md)
 - [Live Reload]({filename}./live-reload.md)
 - [Live Reload With Python]({filename}./live-reload-python.md)
-- [Live Reload With Gulp]({filename}./live-reload-gulp.md)
+- [Live Reload With esbuild]({filename}./live-reload-esbuild.md)

@@ -1,9 +1,13 @@
 {
   "name": "Pelican-Elegant",
+  "scripts": {
+    "build": "NODE_ENV=production node esbuild.config.mjs",
+    "build:dev": "NODE_ENV=development node esbuild.config.mjs",
+    "watch": "NODE_ENV=development node esbuild-watch.mjs",
+    "dev": "NODE_ENV=development node dev-server.mjs",
+    "validate": "jinja-ninja templates"
+  },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@babel/register": "^7.28.6",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
@@ -11,16 +15,12 @@
     "browser-sync": "^3.0.4",
     "cssnano": "^7.1.2",
     "cz-conventional-changelog": "^3.3.0",
-    "gulp": "^5.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-postcss": "^10.0.0",
-    "gulp-run-command": "^0.0.10",
-    "gulp-terser": "^2.1.0",
+    "esbuild": "^0.27.2",
+    "esbuild-plugin-postcss2": "^0.1.2",
     "postcss": "^8.5.6",
     "postcss-font-magician": "^4.0.0",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^11.1.2",
-    "recess": "^1.1.9",
     "rfs": "^10.0.0",
     "semantic-release": "^25.0.2"
   },
@@ -28,16 +28,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": false
-        }
-      ]
-    ]
   },
   "browserslist": [
     "last 2 versions",

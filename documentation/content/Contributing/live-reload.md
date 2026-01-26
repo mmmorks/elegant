@@ -19,5 +19,5 @@ Elegant documentation is LiveReload ready. This feature saves a lot of time. Nex
 
 There are two ways to get LiveReload working for Elegant documentation.
 
-1. [Using gulp.js (Recommended)]({filename}./live-reload-gulp.md)
+1. [Using esbuild (Recommended)]({filename}./live-reload-esbuild.md)
 1. [Using Pelican]({filename}./live-reload-python.md)

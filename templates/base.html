@@ -8,8 +8,8 @@
         {% if PLUGINS and 'assets' in PLUGINS %}
         {% include '_includes/minify_css.html' with context %}
         {% else %}
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/custom.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/{{ 'elegant.css'|asset_url }}" media="screen">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom.css" media="screen">
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/stork.css">
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/stork-dark.css">
         {% endif %}
@@ -120,7 +120,7 @@
         {% if AMAZON_BESTAZON %}
             {% include '_includes/bestazon.html' %}
         {% endif %}
-        <script src="{{ SITEURL }}/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/{{ 'elegant.js'|asset_url }}"></script>
         {% endblock script %}
         {% include '_includes/stat_counter.html' %}
         <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/stork.js"></script>
