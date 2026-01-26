@@ -20,11 +20,13 @@ Then reference it in your Pelican configuration:
 
     :::python
     STATIC_PATHS = ['static']
-    EXTRA_PATH_METADATA = {
-        'static/css/custom.css': {'path': 'static/css/custom.css'},
-    }
+    CUSTOM_CSS = 'static/css/custom.css'
 
-Add a link to it in your site's custom template by creating `templates/base.html` that extends the theme's base template.
+The `CUSTOM_CSS` setting tells Elegant where to find your custom stylesheet. The path should match where the file will be in your output directory.
+
+When you add `'static'` to `STATIC_PATHS`, Pelican copies files from `content/static/` to `output/static/` preserving the directory structure. So `content/static/css/custom.css` becomes `output/static/css/custom.css`, which matches the `CUSTOM_CSS` path.
+
+If you don't set `CUSTOM_CSS`, no custom stylesheet will be loaded.
 
 ## Option 2: Modify Theme Source Files
 

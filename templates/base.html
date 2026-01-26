@@ -9,7 +9,9 @@
         {% include '_includes/minify_css.html' with context %}
         {% else %}
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/elegant.prod.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom.css" media="screen">
+        {% if CUSTOM_CSS %}
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ CUSTOM_CSS }}" media="screen">
+        {% endif %}
         {% endif %}
         {% endblock head_links %}
 
