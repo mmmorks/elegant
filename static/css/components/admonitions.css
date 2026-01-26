@@ -1,11 +1,15 @@
+/**
+ * Components - Admonition blocks (warnings, notes, etc.)
+ */
+
 /* Admonition styles */
 div.admonition {
   padding: 0;
   margin-bottom: 20px;
   background-color: #fcf8e3;
   border: 1px solid;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
 }
 
 div.admonition p {
