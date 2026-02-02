@@ -9,10 +9,11 @@
 
         return {
             // Match Bootstrap 5 dark theme colors exactly
+            // Note: CommentBox.io only supports backgroundColor, textColor, and subtextColor
+            // The textarea styling is controlled by CommentBox.io's iframe and may not fully respect these colors
             backgroundColor: isDark ? '#212529' : '#ffffff',
             textColor: isDark ? '#dee2e6' : '#212529',
-            subtextColor: isDark ? '#adb5bd' : '#6c757d',
-            buttonColor: isDark ? '#0d6efd' : '#0d6efd'
+            subtextColor: isDark ? '#adb5bd' : '#6c757d'
         };
     }
 
@@ -23,7 +24,6 @@
         backgroundColor: theme.backgroundColor,
         textColor: theme.textColor,
         subtextColor: theme.subtextColor,
-        buttonColor: theme.buttonColor,
         onCommentCount(count) {
             const ele = document.querySelector("#comment-accordion-toggle")
             if (ele) {
