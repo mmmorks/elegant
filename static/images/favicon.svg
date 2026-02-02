@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+  <!-- Third m (furthest back, most faded) -->
+  <text x="25" y="43"
+        font-family="Georgia, serif"
+        font-size="48"
+        font-weight="700"
+        text-anchor="middle"
+        fill="#1a1a1a"
+        opacity="0.15"
+        transform="translate(6, -6)">m</text>
+
+  <!-- Second m (middle layer) -->
+  <text x="25" y="43"
+        font-family="Georgia, serif"
+        font-size="48"
+        font-weight="700"
+        text-anchor="middle"
+        fill="#1a1a1a"
+        opacity="0.35"
+        transform="translate(3, -3)">m</text>
+
+  <!-- First m (foreground, prominent) -->
+  <text x="25" y="43"
+        font-family="Georgia, serif"
+        font-size="48"
+        font-weight="700"
+        text-anchor="middle"
+        fill="#1a1a1a">m</text>
+</svg>
