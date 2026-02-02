@@ -21,6 +21,8 @@
 
   /* Light mode colors */
   --elegant-link-color: #3875d7;
+  --elegant-link-hover-color: #1e90ff;
+  --elegant-link-underline-color: silver;
   --elegant-text-color: #333;
   --elegant-bg-color: #fff;
   --elegant-muted-text: dimgray;
@@ -47,6 +49,8 @@
 /* Dark mode color overrides */
 [data-bs-theme="dark"] {
   --elegant-link-color: #6db3f2;
+  --elegant-link-hover-color: #87cefa;
+  --elegant-link-underline-color: #6c757d;
   --elegant-text-color: #dee2e6;
   --elegant-bg-color: #212529;
   --elegant-muted-text: #adb5bd;
